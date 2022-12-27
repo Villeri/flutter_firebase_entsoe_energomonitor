@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "824616255124",
+    "firebase_url": "https://pythonfirebasetesti-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "pythonfirebasetesti",
+    "storage_bucket": "pythonfirebasetesti.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824616255124:android:898e0ac0c9e47255ca3e81",
+        "android_client_info": {
+          "package_name": "com.example.flutter_firebase_energyprices"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "824616255124-9l1pc6tqpaj3d3l66m3sak36in7lpi67.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAakBAhZE5iGbmpBA8yEc-ds6J6k6uADRc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "824616255124-9l1pc6tqpaj3d3l66m3sak36in7lpi67.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
