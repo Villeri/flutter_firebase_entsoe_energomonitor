@@ -53,25 +53,26 @@ class _UserInfoState extends State<UserInfo> {
 
   Future<void> _dialogBuilder(BuildContext context) {
     return showDialog<void>(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const Text("User info"),
-            content: const Text(
-                "This user info is fetched from app.energomonitor.com webpage."),
-            actions: [
-              TextButton(
-                style: TextButton.styleFrom(
-                  textStyle: Theme.of(context).textTheme.labelLarge,
-                ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Text("OK"),
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("User info"),
+          content: const Text(
+              "This user info is fetched from app.energomonitor.com webpage."),
+          actions: [
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
               ),
-            ],
-          );
-        });
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text("OK"),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override

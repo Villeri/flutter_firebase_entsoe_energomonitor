@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class EnergyPricesInfoCharts extends StatefulWidget {
   EnergyPricesInfoCharts({
@@ -17,6 +18,7 @@ class EnergyPricesInfoCharts extends StatefulWidget {
 
 class _EnergyPricesInfoChartsState extends State<EnergyPricesInfoCharts> {
   List<EnergyData> _dataList = [];
+  List _dataListWithTimestamp = [];
   String date = "";
 
   @override
@@ -44,6 +46,7 @@ class _EnergyPricesInfoChartsState extends State<EnergyPricesInfoCharts> {
         final hoursAndMinutes =
             "${time[0]}${time[1]}${time[2]}${time[3]}${time[4]}";
         _dataList.add(EnergyData(hoursAndMinutes, responseJson[i][1]));
+        _dataListWithTimestamp.add("${date}: ${responseJson[i][1]}");
       });
     }
   }
@@ -81,6 +84,16 @@ class _EnergyPricesInfoChartsState extends State<EnergyPricesInfoCharts> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Energy prices info charts"),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.upload_outlined),
+            onPressed: () {
+              FirebaseDatabase.instance
+                  .ref("EnergomonitorUsedEnergyPrices")
+                  .set({"usedEnergyPriceValues": _dataListWithTimestamp});
+            },
+          ),
+        ],
       ),
       body: _checkValue(),
     );

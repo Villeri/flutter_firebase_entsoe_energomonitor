@@ -10,6 +10,8 @@ import 'package:flutter_firebase_energyprices/userinfo.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  FirebaseDatabase.instance.setPersistenceEnabled(true);
+  FirebaseDatabase.instance.setPersistenceCacheSizeBytes(10000000);
   runApp(const MyApp());
 }
 

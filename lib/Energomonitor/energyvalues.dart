@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_energyprices/Energomonitor/EnergyHistory/energy_history.dart';
 import 'package:flutter_firebase_energyprices/Energomonitor/Last10Mins_EnergyPrices/last10mins_energyprices.dart';
 import 'package:flutter_firebase_energyprices/Energomonitor/Last10Mins_EnergyValues/last10mins_energyvalues.dart';
 
@@ -45,6 +46,15 @@ class _EnergyValuesState extends State<EnergyValues> {
                             )));
               },
               child: const Text("Last 10mins energy prices"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const EnergyHistory()));
+              },
+              child: const Text("Energy history from Firebase"),
             ),
           ],
         ),

@@ -15,11 +15,41 @@ class Last10MinsEnergyPrices extends StatefulWidget {
 }
 
 class _Last10MinsEnergyPricesState extends State<Last10MinsEnergyPrices> {
+  Future<void> _dialogBuilder(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("View info"),
+          content: const Text(
+              "The energy value data is fetched from Energomonitor-page. Go to 'View energy price info charts' -view and press the upload-icon to save data to Firebase."),
+          actions: [
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text("OK"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Last 10 minutes energy prices"),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.info_outline),
+            onPressed: () => _dialogBuilder(context),
+          ),
+        ],
       ),
       body: Center(
         child: Column(
