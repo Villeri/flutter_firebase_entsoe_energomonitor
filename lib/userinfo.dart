@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import "package:http/http.dart" as http;
 
 Future<UserData> fetchUserData() async {
-  String token = "UgwoEZqFlIyX3O5oE0Jnsnt2TWl0Ga";
+  String token = "xvJzxavnABRYj15L2h910TurGK2WDr";
   final response = await http.get(
     Uri.parse("https://api.energomonitor.com/v1/users/ustrx"),
     headers: {
@@ -28,9 +28,9 @@ class UserData {
 
   factory UserData.fromJson(Map<String, dynamic> json) {
     return UserData(
-      email: json["email"],
-      id: json["id"],
-      username: json["username"],
+      email: json["email"] ?? "No email found",
+      id: json["id"] ?? "No id found",
+      username: json["username"] ?? "No username found",
     );
   }
 }
